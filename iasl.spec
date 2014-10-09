@@ -1,11 +1,12 @@
+# based on PLD Linux spec git://git.pld-linux.org/packages/iasl.git
 Summary:	ACPI CA for Linux
 Name:		iasl
-Version:	20130823
+Version:	20140926
 Release:	1
 License:	distributable (http://acpica.org/downloads/unix_source_code.php)
 Group:		Applications/System
 Source0:	http://acpica.org/sites/acpica/files/acpica-unix-%{version}.tar.gz
-# Source0-md5:	cc7528ecd185ff779c6b58bfede091b2
+# Source0-md5:	47496f7abe1a73f5911a1e0d304bb246
 URL:		http://acpica.org
 BuildRequires:	bison
 BuildRequires:	flex
@@ -29,7 +30,7 @@ export CFLAGS="%{rpmcflags}"
 export LDFLAGS="%{rpmldflags}"
 
 cd generate/unix
-
+%{__make} clean
 %ifarch %{x8664}
 %{__make} -j1 BITS=64
 %else
